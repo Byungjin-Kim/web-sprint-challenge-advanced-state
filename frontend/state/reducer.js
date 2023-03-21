@@ -11,6 +11,7 @@ import {
 
 import { combineReducers } from 'redux';
 
+
 const initialWheelState = 0;
 function wheel(state = initialWheelState, action) {
   switch (action.type) {
@@ -25,21 +26,35 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
-// idx === wheel ? 'B' : null
-
 const initialQuizState = null
 function quiz(state = initialQuizState, action) {
-  return state
+  switch (action.type) {
+    case SET_QUIZ_INTO_STATE:
+      return action.payload;
+    default:
+      return state;
+  }
+
 }
 
 const initialSelectedAnswerState = null
 function selectedAnswer(state = initialSelectedAnswerState, action) {
-  return state
+  switch (action.type) {
+    case SET_SELECTED_ANSWER:
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 const initialMessageState = ''
 function infoMessage(state = initialMessageState, action) {
-  return state
+  switch (action.type) {
+    case SET_INFO_MESSAGE:
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 const initialFormState = {
