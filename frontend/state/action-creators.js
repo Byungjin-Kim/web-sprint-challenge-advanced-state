@@ -74,14 +74,11 @@ export function postAnswer({ quiz_id, answer_id }) {
     // - Dispatch the fetching of the next quiz
   }
 }
-export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
+export function postQuiz({ question_text, true_answer_text, false_answer_text }) {
   return function (dispatch) {
     axios.post('http://localhost:9000/api/quiz/new',
-      {
-        question_text: newQuestion,
-        true_answer_text: newTrueAnswer,
-        false_answer_text: newFalseAnswer
-      })
+      { question_text, true_answer_text, false_answer_text }
+    )
       .then(res => {
         dispatch(setMessage(`Congrats: "${res.data.question}" is a great question!`))
         dispatch(resetForm())
@@ -94,6 +91,5 @@ export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
     // - Dispatch the resetting of the form
   }
 }
-
 
 // ❗ On promise rejections, use log statements or breakpoints, and put an appropriate error message in state

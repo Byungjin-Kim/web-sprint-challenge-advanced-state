@@ -7,16 +7,18 @@ export function Form(props) {
 
   const onChange = evt => {
     const { value, id } = evt.target;
-    inputChange({ id, value });
+    inputChange({ value, id });
   }
 
   const onSubmit = evt => {
     evt.preventDefault();
     postQuiz(
-      form.newQuestion,
-      form.newTrueAnswer,
-      form.newFalseAnswer
-    )
+      {
+        question_text: form.newQuestion,
+        true_answer_text: form.newTrueAnswer,
+        false_answer_text: form.newFalseAnswer
+      }
+    );
   }
 
   const stringTrimCheck =
