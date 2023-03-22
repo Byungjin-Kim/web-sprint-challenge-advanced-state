@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-
-
-
 export function Message(props) {
   const { infoMessage } = props;
 
